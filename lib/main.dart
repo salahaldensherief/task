@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/helper/app_routes.dart';
+import 'package:task/features/auth/presentation/views/sign_in_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Task());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Task extends StatelessWidget {
+  const Task({super.key});
 
   // This widget is the root of your application.
   @override
@@ -14,9 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: Colors.white,
+        useMaterial3: false
       ),
       onGenerateRoute: onGenerateRoute,
+      initialRoute: SignInView.routeName,
     );
   }
 }
