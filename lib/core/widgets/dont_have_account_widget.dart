@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task/core/utils/assets.dart';
+import 'package:task/features/auth/presentation/views/sign_up_view.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 
@@ -24,7 +25,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
             recognizer:
                 TapGestureRecognizer()
                   ..onTap = () {
-                    // Navigator.pushNamed(context, SignupView.routeName);
+                    Navigator.pushNamed(context, SignUpView.routeName);
                   },
             text: 'Sign up',
             style: TextStyle(
