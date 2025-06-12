@@ -28,10 +28,10 @@ class SignUpViewBody extends StatelessWidget {
                 SizedBox(height: size.height * 0.10),
                 Image.asset(AssetsImage.logo, height: size.height * 0.10),
                 const Text(
-                  'Sign in to continue',
+                  'Create a new account',
                   style: TextStyle(
                     fontFamily: 'Cairo',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     fontSize: 18,
                   ),
                 ),
