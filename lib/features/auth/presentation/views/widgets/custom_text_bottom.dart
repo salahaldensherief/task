@@ -15,7 +15,7 @@ class CustomTextBottom extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         width: double.infinity,
-        height: 50,
+        height: 55,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
         color: AppColors.primaryColor
@@ -23,7 +23,8 @@ class CustomTextBottom extends StatelessWidget {
         child: Center(child: Text(text,style: TextStyle(
             fontSize: 20,
             fontFamily: AppFonts.cairo,
-            color: Colors.white),)),
+            fontWeight: FontWeight.w800,
+            color:AppColors.secColor),)),
       ),
     );
   }

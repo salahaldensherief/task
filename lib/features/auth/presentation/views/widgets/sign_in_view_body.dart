@@ -42,7 +42,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 ),
                 SizedBox(height: size.height * 0.10),
                 const CustomTextFormField(
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: Icon(Icons.email, size: 26),
                   hintText: 'Email',
                   textInputType: TextInputType.emailAddress,
                 ),
@@ -79,7 +79,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 CustomTextBottom(text: 'Login'),
                 const SizedBox(height: 24),
                 const Text('Or', style: TextStyle(fontSize: 18)),
-                SizedBox(height: size.height * 0.0200),
+                SizedBox(height: size.height * 0.02),
                 SocialLoginButton(
                   image: AssetsImage.googleIcon,
                   title: 'Continue with Google',

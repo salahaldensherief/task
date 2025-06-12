@@ -20,7 +20,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
               fontFamily: AppFonts.cairo,
             ),
           ),
-          TextSpan(text: ' ', style: TextStyle(fontFamily: AppFonts.cairo)),
+          TextSpan(text: ' ', ),
           TextSpan(
             recognizer:
                 TapGestureRecognizer()

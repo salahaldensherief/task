@@ -43,7 +43,7 @@ class _PasswordFieldState extends State<PasswordField> {
           },
 
       textInputType: TextInputType.visiblePassword,
-      prefixIcon: const Icon(Icons.lock, color: Colors.black54),
+      prefixIcon: const Icon(Icons.lock ,size: 26, color: Colors.black54),
       suffixIcon: GestureDetector(
         onTap: () {
           setState(() {
