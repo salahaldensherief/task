@@ -7,3 +7,6 @@ class AssetsImage {
 class AppFonts {
   static const cairo = 'Cairo';
 }
+class JsonSource{
+  static const users = 'assets/users.json';
+}
