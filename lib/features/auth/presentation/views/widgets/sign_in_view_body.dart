@@ -8,12 +8,20 @@ import 'package:task/features/auth/presentation/views/widgets/custom_text_bottom
 import 'package:task/features/auth/presentation/views/widgets/passwoed_field.dart';
 import 'package:task/features/auth/presentation/views/widgets/social_login_button.dart';
 
-class SignInViewBody extends StatelessWidget {
+class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
+
+  @override
+  State<SignInViewBody> createState() => _SignInViewBodyState();
+}
+
+class _SignInViewBodyState extends State<SignInViewBody> {
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -43,7 +51,14 @@ class SignInViewBody extends StatelessWidget {
                 const SizedBox(height: 12),
                 Row(
                   children: [
-                    CustomCheckBox(isChecked: false, onChecked: (value) {}),
+                    CustomCheckBox(
+                      isChecked: isChecked,
+                      onChecked: (value) {
+                        setState(() {
+                          isChecked = value;
+                        });
+                      },
+                    ),
                     const SizedBox(width: 8),
                     const Text(
                       'Remember me',
@@ -63,7 +78,7 @@ class SignInViewBody extends StatelessWidget {
                 const SizedBox(height: 24),
                 CustomTextBottom(text: 'Login'),
                 const SizedBox(height: 24),
-                const Text('Or', style: TextStyle(fontSize: 20)),
+                const Text('Or', style: TextStyle(fontSize: 18)),
                 SizedBox(height: size.height * 0.0200),
                 SocialLoginButton(
                   image: AssetsImage.googleIcon,

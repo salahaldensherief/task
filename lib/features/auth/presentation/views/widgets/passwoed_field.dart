@@ -53,7 +53,7 @@ class _PasswordFieldState extends State<PasswordField> {
 
         child: Icon(
           obscureText ? Icons.visibility : Icons.visibility_off,
-          color: obscureText ? Colors.black : Colors.grey,
+          color: obscureText ? Colors.grey : Colors.grey,
         ),
       ),
 

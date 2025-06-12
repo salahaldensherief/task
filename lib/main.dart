@@ -16,7 +16,6 @@ class Task extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        useMaterial3: false
       ),
       onGenerateRoute: onGenerateRoute,
       initialRoute: SignInView.routeName,
