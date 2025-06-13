@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:task/features/auth/domain/repo/login_repo.dart';
+
+import '../../../domain/repos/login_repo.dart';
 
 part 'login_state.dart';
 
