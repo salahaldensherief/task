@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task/core/helper/%20Injection/git_it.dart';
 import 'package:task/core/helper/app_routes.dart';
 import 'package:task/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
+import 'package:task/features/auth/presentation/cubits/siginup_cubit/signup_cubit.dart';
 import 'package:task/features/auth/presentation/views/sign_in_view.dart';
 
 void main()  {
@@ -17,6 +18,7 @@ class Task extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<LoginCubit>(create: (context) => getIt<LoginCubit>()),
+        BlocProvider<SignupCubit>(create: (context) => getIt<SignupCubit>()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -14,7 +14,6 @@ class PasswordField extends StatefulWidget {
   final void Function(String?)? onSaved;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
-
   final String hintText;
 
   @override
@@ -27,12 +26,10 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-
       controller: widget.controller,
       obscureText: obscureText,
       onSaved: widget.onSaved,
-      hintText:  widget.hintText ,
-
+      hintText: widget.hintText,
       validator:
           widget.validator ??
           (value) {
@@ -41,22 +38,19 @@ class _PasswordFieldState extends State<PasswordField> {
             }
             return null;
           },
-
       textInputType: TextInputType.visiblePassword,
-      prefixIcon: const Icon(Icons.lock ,size: 26, color: Colors.black54),
-      suffixIcon: GestureDetector(
-        onTap: () {
+      prefixIcon: const Icon(Icons.lock, size: 26, color: Colors.black54),
+      suffixIcon: IconButton(
+        icon: Icon(
+          obscureText ? Icons.visibility : Icons.visibility_off,
+          color: Colors.grey,
+        ),
+        onPressed: () {
           setState(() {
             obscureText = !obscureText;
           });
         },
-
-        child: Icon(
-          obscureText ? Icons.visibility : Icons.visibility_off,
-          color: obscureText ? Colors.grey : Colors.grey,
-        ),
       ),
-
     );
   }
 }
