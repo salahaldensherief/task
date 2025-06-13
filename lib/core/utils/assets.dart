@@ -14,4 +14,5 @@ class AppFonts {
 }
 class JsonSource{
   static const users = 'assets/users.json';
+  static const offers = 'assets/offers.json';
 }
