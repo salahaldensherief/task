@@ -7,7 +7,7 @@ import '../../../../core/utils/assets.dart';
 import '../models/offer_model.dart';
 
 class ProductsDataSource{
-  Future<List<ProductsModel>> getOffers()async{
+  Future<List<ProductsModel>> getProducts()async{
     var response = await rootBundle.loadString(JsonSource.products);
     final List offer = jsonDecode(response);
     return offer.map((e) => ProductsModel.fromJson(e)).toList();
