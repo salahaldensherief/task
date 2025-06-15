@@ -8,7 +8,7 @@ import 'package:task/features/auth/presentation/cubits/siginup_cubit/signup_cubi
 import 'package:task/features/auth/presentation/views/sign_in_view.dart';
 import 'package:task/features/home/presentation/views/home_view.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   setup();
@@ -16,13 +16,13 @@ void main() async{
   final prefs = await SharedPreferences.getInstance();
   final bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
 
-  runApp( Task(isLoggedIn: isLoggedIn));
+  runApp(Task(isLoggedIn: isLoggedIn));
 }
 
 class Task extends StatelessWidget {
   final bool isLoggedIn;
 
-  const Task({super.key, required  this.isLoggedIn});
+  const Task({super.key, required this.isLoggedIn});
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -31,13 +31,9 @@ class Task extends StatelessWidget {
         BlocProvider<SignupCubit>(create: (context) => getIt<SignupCubit>()),
       ],
       child: MaterialApp(
-
         title: 'Flutter Demo',
-        theme: ThemeData(
-
-
-            scaffoldBackgroundColor: Colors.white),
-        home: isLoggedIn ? HomeView() : SignInView() ,
+        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+        home: isLoggedIn ? HomeView() : SignInView(),
         onGenerateRoute: onGenerateRoute,
       ),
     );

@@ -30,6 +30,7 @@ flutter:
     - assets/images/
     - assets/users.json
     - assets/offers.json
+    - assets/products.json
 
   fonts:
     - family: Cairo

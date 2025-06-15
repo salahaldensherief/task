@@ -14,7 +14,7 @@ class ProductsCubit extends Cubit<ProductsState> {
     emit(ProductsLoading());
     try {
       List<ProductsModel> product = await productsRepo.fetchProduct();
-      emit(ProductsSuccess());
+      emit(ProductsSuccess(product));
     } on Exception catch (e) {
       emit(ProductsFailure('something wrong try later'));
     }

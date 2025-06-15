@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/utils/assets.dart';
+import 'package:task/features/home/data/models/products_model.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 
 class BestSellerWidget extends StatelessWidget {
-  const BestSellerWidget({super.key});
+  const BestSellerWidget({super.key, required this.product});
+  final ProductsModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +64,9 @@ class BestSellerWidget extends StatelessWidget {
                               color: Colors.red.shade700,
                               borderRadius: BorderRadius.circular(4),
                             ),
-                            child: const Text(
-                              "-17%",
-                              style: TextStyle(
+                            child: Text(
+                              product.dic,
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -91,16 +93,16 @@ class BestSellerWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Default box, number 1',
+                 Text(
+                  product.productName,
                   style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12),
                 ),
                 const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children:  [
                     Text(
-                      'Category 1',
+                      product.category,
                       style: TextStyle(
                         fontFamily: 'Cairo',
                         color: Colors.grey,
@@ -108,7 +110,7 @@ class BestSellerWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '1500 L.E',
+                      product.price,
                       style: TextStyle(
                         fontFamily: 'Cairo',
                         fontWeight: FontWeight.w900,

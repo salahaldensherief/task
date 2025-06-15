@@ -5,8 +5,11 @@ import 'package:task/features/auth/domain/repos/signup_repi.dart';
 import 'package:task/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:task/features/auth/presentation/cubits/siginup_cubit/signup_cubit.dart';
 import 'package:task/features/home/data/domain/repos/offers_repo.dart';
+import 'package:task/features/home/data/domain/repos/products_repo.dart';
 import 'package:task/features/home/data/source/offer_data_source.dart';
+import 'package:task/features/home/data/source/products_data_source.dart';
 import 'package:task/features/home/presentation/cubits/offers/offers_cubit.dart';
+import 'package:task/features/home/presentation/cubits/products/products_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -33,5 +36,14 @@ void setup() {
   );
   getIt.registerLazySingleton<OffersCubit>(
     () => OffersCubit(getIt<OffersRepo>()),
+
+
+  );//  Home / products
+  getIt.registerLazySingleton<ProductsDataSource>(() => ProductsDataSource());
+  getIt.registerLazySingleton<ProductsRepo>(
+    () => ProductsRepo(getIt<ProductsDataSource>()),
+  );
+  getIt.registerLazySingleton<ProductsCubit>(
+    () => ProductsCubit(getIt<ProductsRepo>()),
   );
 }
