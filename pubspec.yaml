@@ -14,7 +14,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   get_it: ^8.0.3
   shared_preferences: ^2.5.3
-  persistent_bottom_nav_bar_v2: ^6.0.1
+
 
 
 dev_dependencies:

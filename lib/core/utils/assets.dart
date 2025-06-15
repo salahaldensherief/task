@@ -9,6 +9,12 @@ class AssetsImage {
   static const searchPhoto = 'assets/images/search.png';
   static const filterPhoto = 'assets/images/flter.png';
   static const boxPhoto = 'assets/images/image 9.png';
+  static const inactiveHome = 'assets/images/home.png';
+  static const  activeHome = 'assets/images/home active.png';
+  static const inactiveEditor = 'assets/images/editor_inactive.png';
+  static const activeEditor = 'assets/images/editor_active.png';
+  static const activeSetting = 'assets/images/setting_active.png';
+  static const inactiveSetting = 'assets/images/setting_inactive.png';
 }
 class AppFonts {
   static const cairo = 'Cairo';

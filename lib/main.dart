@@ -8,6 +8,8 @@ import 'package:task/features/auth/presentation/cubits/siginup_cubit/signup_cubi
 import 'package:task/features/auth/presentation/views/sign_in_view.dart';
 import 'package:task/features/home/presentation/views/home_view.dart';
 
+import 'features/home/presentation/views/widgets/bottom_nav_bar.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -32,8 +34,9 @@ class Task extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-        home: isLoggedIn ? HomeView() : SignInView(),
+        theme: ThemeData(
+        ),
+        home: isLoggedIn ? BottomNavBar() : SignInView(),
         onGenerateRoute: onGenerateRoute,
       ),
     );
