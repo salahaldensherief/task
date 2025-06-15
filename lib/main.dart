@@ -35,6 +35,7 @@ class Task extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white
         ),
         home: isLoggedIn ? BottomNavBar() : SignInView(),
         onGenerateRoute: onGenerateRoute,

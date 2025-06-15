@@ -15,6 +15,7 @@ class AssetsImage {
   static const activeEditor = 'assets/images/editor_active.png';
   static const activeSetting = 'assets/images/setting_active.png';
   static const inactiveSetting = 'assets/images/setting_inactive.png';
+  static const backIcon = 'assets/images/back.png';
 }
 class AppFonts {
   static const cairo = 'Cairo';

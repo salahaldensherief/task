@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:task/core/utils/app_colors.dart';
 import 'package:task/core/utils/assets.dart';
 import 'package:task/features/home/presentation/views/home_view.dart';
+import 'package:task/features/settings/presentation/views/settings_view.dart';
+
+import '../../../../T-editor/presentation/views/text_editor.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
+
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
     HomeView(),
-    const Center(child: Text('Editor')),
-    const Center(child: Text('Settings')),
+   TextEditor(),
+   SettingsView()
   ];
 
   void _onItemTapped(int index) {
@@ -22,6 +26,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       _selectedIndex = index;
     });
   }
+
   Widget _buildNavItem({
     required int index,
     required String activeIconPath,
@@ -52,6 +57,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     final tabWidth = MediaQuery.of(context).size.width / 3;
@@ -80,7 +86,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   index: 1,
                   activeIconPath: AssetsImage.activeEditor,
                   inactiveIconPath: AssetsImage.inactiveEditor,
-                  label: 'Editor',
+                  label: 'Text Editor',
                 ),
                 _buildNavItem(
                   index: 2,
@@ -100,10 +106,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               child: Container(
                 width: tabWidth,
                 height: 2.8,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(2),
-                ),
+                decoration: BoxDecoration(color: AppColors.primaryColor),
               ),
             ),
           ),
