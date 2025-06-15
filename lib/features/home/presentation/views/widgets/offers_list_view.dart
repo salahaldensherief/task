@@ -21,18 +21,20 @@ class OffersListView extends StatelessWidget {
         } else if (state is OffersSuccess) {
           final List<OfferModel> offers = state.offers;
           return SizedBox(
-            height: containerHeight,
+
+            height: 200,
             child: ListView.builder(
+              shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: offers.length,
               itemBuilder: (context, index) {
                 final offer = offers[index];
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.only(right: 15.0),
                   child: Column(
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(4),
                         child: Image.asset(
                           offer.offer2,
                           height: imageHeight,

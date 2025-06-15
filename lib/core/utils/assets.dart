@@ -8,6 +8,7 @@ class AssetsImage {
   static const alarmPhoto = 'assets/images/Frame 24.png';
   static const searchPhoto = 'assets/images/search.png';
   static const filterPhoto = 'assets/images/flter.png';
+  static const boxPhoto = 'assets/images/image 9.png';
 }
 class AppFonts {
   static const cairo = 'Cairo';

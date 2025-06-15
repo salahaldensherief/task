@@ -9,8 +9,11 @@ class UserHeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
-            maxRadius: 25, child: Image.asset(AssetsImage.userPhoto)),
+        Positioned(
+          child: CircleAvatar(
+
+              maxRadius: 25, child: Image.asset(AssetsImage.userPhoto)),
+        ),
         SizedBox(width: 10),
         Column(
           children: [

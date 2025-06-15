@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../domain/repos/login_repo.dart';
 
@@ -13,6 +14,8 @@ class LoginCubit extends Cubit<LoginState> {
    try {
      final res = await loginRepo.login(email, password);
      if(res){
+       final prefs = await SharedPreferences.getInstance();
+       await prefs.setBool('isLoggedIn', true);
        emit(LoginSuccess());
      }else{
        emit(LoginFailure('Invalid email or password'));
