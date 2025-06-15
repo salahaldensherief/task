@@ -7,7 +7,6 @@ import 'package:task/features/auth/presentation/cubits/login_cubit/login_cubit.d
 import 'package:task/features/auth/presentation/cubits/siginup_cubit/signup_cubit.dart';
 import 'package:task/features/auth/presentation/views/sign_in_view.dart';
 import 'package:task/features/home/presentation/views/home_view.dart';
-import 'package:task/features/home/presentation/views/widgets/bottom_nav_bar.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
