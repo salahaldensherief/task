@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-
   final void Function(String)? onChanged;
-  const CustomTextField({
-    super.key,
-    required this.controller, this.onChanged,
-  });
+  const CustomTextField({super.key, required this.controller, this.onChanged});
 
   final TextEditingController controller;
 
@@ -17,7 +13,12 @@ class CustomTextField extends StatelessWidget {
       maxLines: 12,
       onChanged: onChanged,
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black26, width: .1),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey, width: 1),
+        ),
         hintText: "Start typing...",
       ),
     );

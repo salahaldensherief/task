@@ -15,18 +15,13 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [
-    HomeView(),
-   TextEditor(),
-   SettingsView()
-  ];
+  final List<Widget> _screens = [HomeView(), TextEditor(), SettingsView()];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
-
   Widget _buildNavItem({
     required int index,
     required String activeIconPath,
@@ -57,7 +52,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     final tabWidth = MediaQuery.of(context).size.width / 3;

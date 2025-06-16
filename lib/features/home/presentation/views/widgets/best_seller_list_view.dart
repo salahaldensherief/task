@@ -22,7 +22,9 @@ class BestSellerListView extends StatelessWidget {
                 itemCount: products.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return BestSellerWidget(product: products[index]);
+                  return SizedBox(
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: BestSellerWidget(product: products[index]));
                 },
               );
             } else if (state is ProductsFailure) {
