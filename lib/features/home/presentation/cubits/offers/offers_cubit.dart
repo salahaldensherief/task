@@ -16,7 +16,6 @@ class OffersCubit extends Cubit<OffersState> {
     try {
       List<OfferModel> offers = await offersRepo.fetchOffers();
       emit(OffersSuccess(offers));
-      print("عدد العروض: ${offers.length}");
     } on Exception catch (e) {
     emit(OffersFailure('something wrong try later'));
     }

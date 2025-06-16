@@ -6,13 +6,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool showBack;
   final VoidCallback? onBack;
+ final bool centerTitle;
 
   const CustomAppBar({
-    Key? key,
+    super.key,
     required this.title,
     this.showBack = false,
-    this.onBack,
-  }) : super(key: key);
+    this.onBack, this.centerTitle= true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: onBack ?? () => Navigator.of(context).pop(),
           )
               : null,
-          centerTitle: true,
+          centerTitle: centerTitle,
           title: Text(
             title,
             style: const TextStyle(
@@ -42,10 +43,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
            decoration: BoxDecoration(
              boxShadow: [
                 BoxShadow(
-                   color: Colors.grey.shade400,
-                  spreadRadius: .1,
-                  offset: Offset(0, 1),
+                   color: Colors.black.withOpacity(.3),
+                  spreadRadius: .01,
+                  offset: Offset(0, 2),
                   blurRadius: 2,
+                  blurStyle: BlurStyle.normal
 
                 )
              ]

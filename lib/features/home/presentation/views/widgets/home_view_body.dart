@@ -5,7 +5,9 @@ import 'package:task/features/home/presentation/views/widgets/custom_search_bar.
 import 'package:task/features/home/presentation/views/widgets/offers_widget.dart';
 import 'package:task/features/home/presentation/views/widgets/user_header_widget.dart';
 
+import '../../../../../core/utils/assets.dart';
 import 'best_seller_section.dart';
+import 'icons_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -15,11 +17,23 @@ class HomeViewBody extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 16),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                UserHeaderWidget(),
+                Row(
+                  children: [
+                    UserHeaderWidget(
+                      radius: 25,
+                      name: 'Salah',
+                      info: 'Welcome !',
+                    ),
+                    Spacer(),
+                    IconAppBar(image: AssetsImage.heartPhoto),
+                    SizedBox(width: 20),
+                    IconAppBar(image: AssetsImage.alarmPhoto),
+                  ],
+                ),
                 SizedBox(height: 25),
                 SearchBarWidget(),
                 SizedBox(height: 25),

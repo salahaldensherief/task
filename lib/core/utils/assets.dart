@@ -16,6 +16,12 @@ class AssetsImage {
   static const activeSetting = 'assets/images/setting_active.png';
   static const inactiveSetting = 'assets/images/setting_inactive.png';
   static const backIcon = 'assets/images/back.png';
+  static const profileIcon = 'assets/images/profile.png';
+  static const languageIcon = 'assets/images/language.png';
+  static const navIcon = 'assets/images/layer1.png';
+  static const contactIcon = 'assets/images/contact.png';
+  static const exclamationIcon = 'assets/images/exclamation.png';
+  static const signoutIcon = 'assets/images/sign out.png';
 }
 class AppFonts {
   static const cairo = 'Cairo';

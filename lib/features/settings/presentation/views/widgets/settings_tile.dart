@@ -7,13 +7,11 @@ class SettingsTile extends StatelessWidget {
     super.key,
     required this.iconImage,
     required this.title,
-    required this.categoryName,
     this.isShow = false, this.onTap,
   });
   final bool? isShow;
   final String iconImage;
   final String title;
-  final String categoryName;
 final  void Function()? onTap;
   @override
   Widget build(BuildContext context) {

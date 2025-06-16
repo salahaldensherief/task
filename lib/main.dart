@@ -33,6 +33,7 @@ class Task extends StatelessWidget {
         BlocProvider<SignupCubit>(create: (context) => getIt<SignupCubit>()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white
