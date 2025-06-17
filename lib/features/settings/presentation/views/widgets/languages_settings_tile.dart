@@ -73,7 +73,7 @@ class LanguagesSettingsTile extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             const Text(
-                              'Choose Lanuage',
+                              'Choose Language',
                               style: TextStyle(fontSize: 18),
                             ),
                             const SizedBox(height: 16),

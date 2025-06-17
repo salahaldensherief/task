@@ -14,6 +14,8 @@ dependencies:
   flutter_bloc: ^9.1.1
   get_it: ^8.0.3
   shared_preferences: ^2.5.3
+  flutter_localizations:
+    sdk: flutter
 
 
 
@@ -26,6 +28,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+
   assets:
     - assets/images/
     - assets/users.json
@@ -37,3 +40,4 @@ flutter:
       fonts:
         - asset: assets/fonts/cairo/Cairo-SemiBold.ttf
           weight: 600
+
