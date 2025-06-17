@@ -39,6 +39,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
       });
     }
   }
+  @override
   Widget build(BuildContext context) {
 
     final kHorizontal = MediaQuery.of(context).size.width ;
@@ -76,7 +77,18 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
               obscureText: true,
             ),
             Spacer(),
-            CustomTextBottom(text: 'Save')
+            CustomTextBottom(
+                onPressed: () async {
+                  final updatedUser = await ProfileRepo().updateUserData(
+                    name: nameController.text,
+                    password: passwordController.text,
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Profile info updated!')),
+                  );
+                },
+
+                text: 'Save')
 
           ],
         ),

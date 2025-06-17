@@ -62,7 +62,9 @@ class SettingsViewBody extends StatelessWidget {
             ),
             SizedBox(height: 60),
             SettingsTile(
-              onTap: (){},
+              onTap: (){
+
+              },
               isShow: false,
               title: 'Sign out',
               iconImage: AssetsImage.signoutIcon,
