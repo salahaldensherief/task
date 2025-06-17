@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/widgets/custom_app_bar.dart';
 import 'package:task/features/home/presentation/views/widgets/user_header_widget.dart';
+import 'package:task/features/settings/data/profile_repo.dart';
 import 'package:task/features/settings/presentation/views/profile_view.dart';
 import 'package:task/features/settings/presentation/views/widgets/category_name.dart';
+import 'package:task/features/settings/presentation/views/widgets/languages_settings_tile.dart';
 import 'package:task/features/settings/presentation/views/widgets/settings_tile.dart';
 
 import '../../../../../core/utils/assets.dart';
@@ -38,12 +40,9 @@ class SettingsViewBody extends StatelessWidget {
               iconImage: AssetsImage.profileIcon,
             ),
             SizedBox(height: 25),
-            SettingsTile(
-              onTap: (){},
-              isShow: true,
-              title: 'Languages',
-              iconImage: AssetsImage.languageIcon,
-            ),
+            LanguagesSettingsTile(
+                isShow: true,
+                iconImage: AssetsImage.languageIcon, title: 'Languages'),
             SizedBox(height: 30),
             CategoryName(category: 'Contact us'),
             SizedBox(height: 30),
@@ -55,7 +54,8 @@ class SettingsViewBody extends StatelessWidget {
             ),
             SizedBox(height: 25),
             SettingsTile(
-              onTap: (){},
+              onTap: (){
+              },
               isShow: true,
               title: 'About us',
               iconImage: AssetsImage.exclamationIcon,
@@ -63,7 +63,7 @@ class SettingsViewBody extends StatelessWidget {
             SizedBox(height: 60),
             SettingsTile(
               onTap: (){
-
+                ProfileRepo().signOut(context);
               },
               isShow: false,
               title: 'Sign out',

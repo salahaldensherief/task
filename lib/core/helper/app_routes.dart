@@ -7,13 +7,13 @@ import '../../features/settings/presentation/views/profile_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case SignInView.routeName :
+    case SignInView.routeName:
       return MaterialPageRoute(builder: (context) => SignInView());
-      case SignUpView.routeName :
+    case SignUpView.routeName:
       return MaterialPageRoute(builder: (context) => SignUpView());
-      case HomeView.routeName :
+    case HomeView.routeName:
       return MaterialPageRoute(builder: (context) => HomeView());
-      case ProfileView.routeName :
+    case ProfileView.routeName:
       return MaterialPageRoute(builder: (context) => ProfileView());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());

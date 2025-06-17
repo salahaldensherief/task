@@ -74,7 +74,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
               hintText: '',
               textInputType: TextInputType.visiblePassword,
               controller: passwordController,
-              obscureText: true,
+              obscureText: false,
             ),
             Spacer(),
             CustomTextBottom(

@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:task/features/auth/presentation/views/sign_in_view.dart';
 import '../../auth/data/models/user_model.dart';
 
 class ProfileRepo {
@@ -25,5 +27,10 @@ class ProfileRepo {
       final updatedJson = jsonEncode(userMap);
       await prefs.setString('loggedUser', updatedJson);
     }
+  }
+  Future<void> signOut(BuildContext context) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('loggedUser');
+    Navigator.pushReplacementNamed(context, SignInView.routeName);
   }
 }

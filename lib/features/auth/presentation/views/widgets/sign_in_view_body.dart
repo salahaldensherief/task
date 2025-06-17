@@ -19,13 +19,28 @@ class SignInViewBody extends StatefulWidget {
 
 class _SignInViewBodyState extends State<SignInViewBody> {
   bool isChecked = false;
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -49,7 +64,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   SizedBox(height: size.height * 0.10),
                   CustomTextFormField(
                     controller: emailController,
-                    prefixIcon: Icon(Icons.email, size: 26),
+                    prefixIcon: const Icon(Icons.email, size: 26),
                     hintText: 'Email',
                     textInputType: TextInputType.emailAddress,
                   ),
@@ -89,9 +104,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   CustomTextBottom(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        BlocProvider.of<LoginCubit>(
-                          context,
-                        ).login(emailController.text, passwordController.text);
+                        BlocProvider.of<LoginCubit>(context).login(
+                          emailController.text,
+                          passwordController.text,
+                        );
                       }
                     },
                     text: 'Login',
