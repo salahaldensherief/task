@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task/core/utils/assets.dart';
@@ -8,9 +7,9 @@ import 'package:task/features/auth/data/models/user_model.dart';
 class UserDataSource {
   Future<List<UserModel>> getUsers() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? storedUsers = prefs.getString('users');
-    if (storedUsers != null) {
-      final List users = jsonDecode(storedUsers);
+    String? gUsers = prefs.getString('users');
+    if (gUsers != null) {
+      final List users = jsonDecode(gUsers);
       return users.map((e) => UserModel.fromJson(e)).toList();
     }
     var response = await rootBundle.loadString(JsonSource.users);

@@ -29,3 +29,12 @@
 ```bash
 flutter pub get
 flutter run
+
+
+  Download APK
+
+You can try the app by downloading the APK here:
+
+[ Download APK from Google Drive](
+https://docs.google.com/uc?export=download&id=12Wy7OD4pUdbAc0Klp7zCrfSEq2qeJ56N
+)
