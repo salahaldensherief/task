@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/utils/app_colors.dart';
 
+import '../utils/assets.dart';
+
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     required this.hintText,
@@ -44,6 +46,10 @@ class CustomTextFormField extends StatelessWidget {
             filled: true,
             fillColor: Colors.white,
             hintText: hintText,
+            hintStyle: TextStyle(
+              fontFamily: AppFonts.cairo,
+
+            ),
             prefixIcon: prefixIcon,
             prefixIconColor: Colors.black54,
             suffixIcon: suffixIcon,

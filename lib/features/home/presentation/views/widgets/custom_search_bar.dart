@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/utils/app_colors.dart';
 import 'package:task/core/utils/assets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchBarWidget extends StatelessWidget {
   final TextEditingController? searchController;
@@ -9,6 +10,8 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     final screenWidth = MediaQuery.of(context).size.width;
     final double barHeight =
         screenWidth < 360 ? 36.0 : (screenWidth < 600 ? 60.0 : 50.0);
@@ -26,7 +29,7 @@ class SearchBarWidget extends StatelessWidget {
               child: TextField(
                 controller: searchController,
                 decoration: InputDecoration(
-                  hintText: 'Search here ...',
+                  hintText: local.searchHere,
                   hintStyle: TextStyle(
                     color: Colors.grey[500],
                     fontSize:

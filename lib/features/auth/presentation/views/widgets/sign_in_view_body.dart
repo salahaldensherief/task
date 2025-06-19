@@ -9,6 +9,8 @@ import 'package:task/core/widgets/custom_text_field.dart';
 import 'package:task/features/auth/presentation/views/widgets/custom_text_bottom.dart';
 import 'package:task/features/auth/presentation/views/widgets/passwoed_field.dart';
 import 'package:task/features/auth/presentation/views/widgets/social_login_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
@@ -39,6 +41,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -53,8 +57,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 children: [
                   SizedBox(height: size.height * 0.10),
                   Image.asset(AssetsImage.logo, height: size.height * 0.10),
-                  const Text(
-                    'Sign in to continue',
+                   Text(
+                     local.signInToContinue,
                     style: TextStyle(
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.w600,
@@ -65,13 +69,13 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   CustomTextFormField(
                     controller: emailController,
                     prefixIcon: const Icon(Icons.email, size: 26),
-                    hintText: 'Email',
+                    hintText: local.email,
                     textInputType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: 16),
                   PasswordField(
                     controller: passwordController,
-                    hintText: 'Password',
+                    hintText: local.password,
                   ),
                   const SizedBox(height: 12),
                   Row(
@@ -85,13 +89,13 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         },
                       ),
                       const SizedBox(width: 8),
-                      const Text(
-                        'Remember me',
+                       Text(
+                        local.rememberMe,
                         style: TextStyle(fontFamily: 'Cairo'),
                       ),
                       const Spacer(),
                       Text(
-                        'Forgot Password ?',
+                       local.forgotPassword,
                         style: TextStyle(
                           fontFamily: 'Cairo',
                           fontSize: 16,
@@ -110,14 +114,14 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         );
                       }
                     },
-                    text: 'Login',
+                    text: local.login,
                   ),
                   const SizedBox(height: 24),
-                  const Text('Or', style: TextStyle(fontSize: 18)),
+                   Text(local.or, style: TextStyle(fontSize: 18)),
                   SizedBox(height: size.height * 0.02),
                   SocialLoginButton(
                     image: AssetsImage.googleIcon,
-                    title: 'Continue with Google',
+                    title: local.continueWithGoogle,
                     onPressed: () {},
                   ),
                   SizedBox(height: size.height * 0.15),

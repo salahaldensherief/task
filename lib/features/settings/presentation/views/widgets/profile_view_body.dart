@@ -5,6 +5,7 @@ import 'package:task/core/widgets/custom_text_field.dart';
 import 'package:task/features/auth/presentation/views/widgets/custom_text_bottom.dart';
 import 'package:task/features/settings/data/profile_repo.dart';
 import 'package:task/features/settings/presentation/views/widgets/edit_info_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileViewBody extends StatefulWidget {
   const ProfileViewBody({super.key});
@@ -26,9 +27,10 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
     super.initState();
     nameController = TextEditingController();
     emailController = TextEditingController();
-    passwordController =TextEditingController();
+    passwordController = TextEditingController();
     loadUserDataToControllers();
   }
+
   void loadUserDataToControllers() async {
     final user = await ProfileRepo().loadUserData();
     if (user != null) {
@@ -39,23 +41,24 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
-
-    final kHorizontal = MediaQuery.of(context).size.width ;
-    final kVertical = MediaQuery.of(context).size.width ;
+    final local = AppLocalizations.of(context)!;
+    final kHorizontal = MediaQuery.of(context).size.width;
+    final kVertical = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: CustomAppBar(
         centerTitle: false,
         showBack: true,
-        title: 'Edit Account',
+        title: local.editAccount,
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: kHorizontal /15, vertical: kVertical/10),
+        padding: EdgeInsets.symmetric(horizontal: kHorizontal / 15, vertical: kVertical / 10),
         child: Column(
           children: [
             EditInfoField(
-              title: 'Name',
+              title: local.userName,
               hintText: '',
               textInputType: TextInputType.name,
               controller: nameController,
@@ -63,14 +66,14 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
             SizedBox(height: 30),
             EditInfoField(
               readOnly: true,
-              title: 'Email',
+              title: local.email,
               hintText: '',
               textInputType: TextInputType.emailAddress,
               controller: emailController,
             ),
             SizedBox(height: 30),
             EditInfoField(
-              title: 'Password',
+              title: local.password,
               hintText: '',
               textInputType: TextInputType.visiblePassword,
               controller: passwordController,
@@ -84,12 +87,11 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                     password: passwordController.text,
                   );
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Profile info updated!')),
+                    SnackBar(content: Text(local.profileInfoUpdated)),
                   );
                 },
-
-                text: 'Save')
-
+                text: local.save
+            )
           ],
         ),
       ),

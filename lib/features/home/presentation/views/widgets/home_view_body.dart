@@ -8,11 +8,15 @@ import 'package:task/features/home/presentation/views/widgets/user_header_widget
 import '../../../../../core/utils/assets.dart';
 import 'best_seller_section.dart';
 import 'icons_app_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -26,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
                     UserHeaderWidget(
                       radius: 25,
                       name: 'Salah',
-                      info: 'Welcome !',
+                      info: local.welcome,
                     ),
                     Spacer(),
                     IconAppBar(image: AssetsImage.heartPhoto),

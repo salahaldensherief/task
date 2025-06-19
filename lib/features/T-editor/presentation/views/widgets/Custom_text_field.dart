@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomTextField extends StatelessWidget {
   final void Function(String)? onChanged;
@@ -8,6 +9,8 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     return TextField(
       controller: controller,
       maxLines: 12,
@@ -19,7 +22,7 @@ class CustomTextField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey, width: 1),
         ),
-        hintText: "Start typing...",
+        hintText: local.startTyping,
       ),
     );
   }

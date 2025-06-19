@@ -5,6 +5,7 @@ import 'package:task/features/T-editor/presentation/views/widgets/tools_bar.dart
 import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../cubits/editor/texteditor_cubit.dart';
 import 'Custom_text_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TextEditorViewBody extends StatelessWidget {
   TextEditorViewBody({super.key});
@@ -12,10 +13,12 @@ class TextEditorViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: CustomAppBar(title: 'Text Editor'),
+      appBar: CustomAppBar(title: local.textEditor),
       body: BlocBuilder<EditorCubit, String>(
         builder: (context, text) {
           controller.value = TextEditingValue(
@@ -37,7 +40,7 @@ class TextEditorViewBody extends StatelessWidget {
                       onPressed: () => context.read<EditorCubit>().redo(),
                     ),
                     Spacer(),
-                    Text('Words: ${text.trim().split(RegExp(r"\s+")).length}'),
+                    Text('${local.words} ${ text.trim().split(RegExp(r"\s+")).length}'),
                   ],
                 ),
                 SizedBox(height: 12),

@@ -1,19 +1,25 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task/core/utils/assets.dart';
 
 import '../utils/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
   const HaveAnAccountWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     return Text.rich(
       TextSpan(
         children: [
           TextSpan(
-            text: 'Already have an Account?  ',
-            style: TextStyle(color: Color(0xff808080)),
+            text: local.alreadyHaveAccount,
+            style: TextStyle(
+              fontFamily: AppFonts.cairo,
+              color: Color(0xff808080),
+            ),
           ),
 
           TextSpan(
@@ -22,8 +28,12 @@ class HaveAnAccountWidget extends StatelessWidget {
                   ..onTap = () {
                     Navigator.pop(context);
                   },
-            text: 'Login',
-            style: TextStyle(color: AppColors.primaryColor),
+            text: local.login,
+            style: TextStyle(
+              fontFamily: AppFonts.cairo,
+
+              color: AppColors.primaryColor,
+            ),
           ),
         ],
       ),

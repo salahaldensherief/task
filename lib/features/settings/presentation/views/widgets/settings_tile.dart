@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../cubits/loaclization_cubit.dart';
 
 class SettingsTile extends StatelessWidget {
   const SettingsTile({
@@ -15,6 +17,7 @@ class SettingsTile extends StatelessWidget {
 final  void Function()? onTap;
   @override
   Widget build(BuildContext context) {
+    final localizationCubit = context.read<LocalizationCubit>();
     final screenWidth = MediaQuery.of(context).size.width;
     final double barHeight =
         screenWidth < 360 ? 30.0 : (screenWidth < 600 ? 40.0 : 35.0);
@@ -45,15 +48,18 @@ onTap: onTap,
                       ),
                     ),
                   ),
-                  SizedBox(width: 30),
+                  SizedBox(width: 20),
                   Text(title, style: TextStyle(fontFamily: AppFonts.cairo)),
                 ],
               ),
             ),
 
-            isShow == true
-                ? Image.asset(AssetsImage.navIcon, width: 9)
-                : const SizedBox.shrink(),
+            if (isShow == true && localizationCubit.state.locale.languageCode == 'en')
+              Image.asset(AssetsImage.navIcon, width: 9)
+            else if (isShow == true && localizationCubit.state.locale.languageCode == 'ar')
+              Image.asset(AssetsImage.arNavIcon, width: 9)
+            else
+              const SizedBox.shrink(),
           ],
         ),
       ),

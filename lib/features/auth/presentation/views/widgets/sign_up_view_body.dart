@@ -6,6 +6,9 @@ import 'package:task/features/auth/presentation/views/widgets/passwoed_field.dar
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
 import 'custom_text_bottom.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 
 class SignUpViewBody extends StatefulWidget {
   SignUpViewBody({super.key});
@@ -25,7 +28,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
 
   @override
   Widget build(BuildContext context) {
+
     final size = MediaQuery.of(context).size;
+    final local = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -38,9 +44,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 children: [
                   SizedBox(height: size.height * 0.10),
                   Image.asset(AssetsImage.logo, height: size.height * 0.10),
-                  const Text(
-                    'Create a new account',
-                    style: TextStyle(
+                  Text(
+                    local.createAccount,
+                    style: const TextStyle(
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.w500,
                       fontSize: 18,
@@ -50,30 +56,30 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   CustomTextFormField(
                     controller: nameController,
                     prefixIcon: Icon(Icons.person, size: 26),
-                    hintText: 'User name',
+                    hintText: local.userName,
                     textInputType: TextInputType.name,
                   ),
                   const SizedBox(height: 20),
                   CustomTextFormField(
                     controller: emailController,
                     prefixIcon: Icon(Icons.email, size: 26),
-                    hintText: 'Email',
+                    hintText: local.email,
                     textInputType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: 20),
                   PasswordField(
                     controller: passwordController,
-                    hintText: 'Password',
+                    hintText: local.password,
                   ),
                   const SizedBox(height: 20),
                   PasswordField(
                     controller: confirmedPasswordController,
-                    hintText: 'Confirm password',
+                    hintText: local.confirmPassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please confirm your password';
+                        return local.confirmPassword;
                       } else if (value != passwordController.text) {
-                        return 'Passwords do not match';
+                        return local.passwordsDoNotMatch;
                       }
                       return null;
                     },
@@ -90,7 +96,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         );
                       }
                     },
-                    text: 'Sign up',
+                    text:  local.signUp,
                   ),
                   SizedBox(height: size.height * 0.15),
                   const HaveAnAccountWidget(),

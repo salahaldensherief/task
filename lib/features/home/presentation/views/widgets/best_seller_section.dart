@@ -2,17 +2,21 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/assets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class BestSellerSection extends StatelessWidget {
   const BestSellerSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    final local = AppLocalizations.of(context)!;
+
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Best seller',
+          local.bestSeller,
           style: TextStyle(
             fontSize: 18,
             fontFamily: AppFonts.cairo,
@@ -22,7 +26,7 @@ class BestSellerSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              'View all  ',
+              local.viewAll,
               style: TextStyle(
                 fontSize: 15,
                 color: AppColors.primaryColor,

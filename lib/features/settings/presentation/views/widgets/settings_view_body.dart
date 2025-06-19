@@ -8,19 +8,21 @@ import 'package:task/features/settings/presentation/views/widgets/languages_sett
 import 'package:task/features/settings/presentation/views/widgets/settings_tile.dart';
 
 import '../../../../../core/utils/assets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsViewBody extends StatelessWidget {
   const SettingsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     return Scaffold(
-      appBar: CustomAppBar(title: 'Settings'),
+      appBar: CustomAppBar(title: local.settings),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-
           children: [
             SizedBox(height: 25),
             UserHeaderWidget(
@@ -29,44 +31,45 @@ class SettingsViewBody extends StatelessWidget {
               info: 'salah48@gmail.com',
             ),
             SizedBox(height: 30),
-            CategoryName(category: 'Settings'),
+            CategoryName(category: local.settings),
             SizedBox(height: 30),
             SettingsTile(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, ProfileView.routeName);
               },
               isShow: true,
-              title: 'Profile',
+              title: local.profile,
               iconImage: AssetsImage.profileIcon,
             ),
             SizedBox(height: 25),
             LanguagesSettingsTile(
-                isShow: true,
-                iconImage: AssetsImage.languageIcon, title: 'Languages'),
+              isShow: true,
+              iconImage: AssetsImage.languageIcon,
+              title: local.language,
+            ),
             SizedBox(height: 30),
-            CategoryName(category: 'Contact us'),
+            CategoryName(category: local.callUs),
             SizedBox(height: 30),
             SettingsTile(
-              onTap: (){},
+              onTap: () {},
               isShow: true,
-              title: 'Call us',
+              title: local.callUs,
               iconImage: AssetsImage.contactIcon,
             ),
             SizedBox(height: 25),
             SettingsTile(
-              onTap: (){
-              },
+              onTap: () {},
               isShow: true,
-              title: 'About us',
+              title: local.aboutUs,
               iconImage: AssetsImage.exclamationIcon,
             ),
             SizedBox(height: 60),
             SettingsTile(
-              onTap: (){
+              onTap: () {
                 ProfileRepo().signOut(context);
               },
               isShow: false,
-              title: 'Sign out',
+              title: local.signOut,
               iconImage: AssetsImage.signoutIcon,
             ),
           ],

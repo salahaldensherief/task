@@ -19,6 +19,7 @@ class AssetsImage {
   static const profileIcon = 'assets/images/profile.png';
   static const languageIcon = 'assets/images/language.png';
   static const navIcon = 'assets/images/layer1.png';
+  static const arNavIcon = 'assets/images/arNavIcon.png';
   static const contactIcon = 'assets/images/contact.png';
   static const exclamationIcon = 'assets/images/exclamation.png';
   static const signoutIcon = 'assets/images/sign out.png';

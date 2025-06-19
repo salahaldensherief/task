@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/utils/app_colors.dart';
 import '../../../../../core/utils/assets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../cubits/loaclization_cubit.dart';
 
 class LanguagesSettingsTile extends StatelessWidget {
   const LanguagesSettingsTile({
@@ -18,18 +21,19 @@ class LanguagesSettingsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     final screenWidth = MediaQuery.of(context).size.width;
     final double barHeight =
-        screenWidth < 360 ? 30.0 : (screenWidth < 600 ? 40.0 : 35.0);
+    screenWidth < 360 ? 30.0 : (screenWidth < 600 ? 40.0 : 35.0);
     final double barWidth =
-        screenWidth < 360 ? 30.0 : (screenWidth < 600 ? 40.0 : 35.0);
+    screenWidth < 360 ? 30.0 : (screenWidth < 600 ? 40.0 : 35.0);
+    final localizationCubit = context.read<LocalizationCubit>();
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Icon + title
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Row(
@@ -48,13 +52,11 @@ class LanguagesSettingsTile extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 30),
-                Text(title, style: const TextStyle(fontFamily: 'Cairo')),
+                const SizedBox(width: 20),
+                Text(local.language, style: const TextStyle(fontFamily: 'Cairo')),
               ],
             ),
           ),
-
-          // Language button + arrow
           Row(
             children: [
               TextButton(
@@ -72,9 +74,9 @@ class LanguagesSettingsTile extends StatelessWidget {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Text(
-                              'Choose Language',
-                              style: TextStyle(fontSize: 18),
+                            Text(
+                              local.chooseLanguage,
+                              style: const TextStyle(fontSize: 18),
                             ),
                             const SizedBox(height: 16),
                             ListTile(
@@ -84,6 +86,7 @@ class LanguagesSettingsTile extends StatelessWidget {
                               ),
                               title: const Text('العربية'),
                               onTap: () {
+                                localizationCubit.changeLanguage('ar');
                                 Navigator.pop(context);
                               },
                             ),
@@ -94,6 +97,7 @@ class LanguagesSettingsTile extends StatelessWidget {
                               ),
                               title: const Text('English'),
                               onTap: () {
+                                localizationCubit.changeLanguage('en');
                                 Navigator.pop(context);
                               },
                             ),
@@ -104,12 +108,14 @@ class LanguagesSettingsTile extends StatelessWidget {
                   );
                 },
                 child: Text(
-                  'English',
+                  local.language == 'اللغة' ? 'العربية' : 'English',
                   style: TextStyle(color: AppColors.primaryColor),
                 ),
               ),
-              if (isShow == true)
+              if (isShow == true && localizationCubit.state.locale.languageCode == 'en')
                 Image.asset(AssetsImage.navIcon, width: 9)
+              else if (isShow == true && localizationCubit.state.locale.languageCode == 'ar')
+                Image.asset(AssetsImage.arNavIcon, width: 9)
               else
                 const SizedBox.shrink(),
             ],

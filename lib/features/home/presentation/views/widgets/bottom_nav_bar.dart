@@ -5,9 +5,11 @@ import 'package:task/features/home/presentation/views/home_view.dart';
 import 'package:task/features/settings/presentation/views/settings_view.dart';
 
 import '../../../../T-editor/presentation/views/text_editor.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
+  static const routeName = 'bottomnavbar';
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
@@ -22,6 +24,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       _selectedIndex = index;
     });
   }
+
   Widget _buildNavItem({
     required int index,
     required String activeIconPath,
@@ -52,9 +55,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
+    final isRTL = Directionality.of(context) == TextDirection.rtl;
     final tabWidth = MediaQuery.of(context).size.width / 3;
+    final local = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: _screens[_selectedIndex],
@@ -74,19 +80,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   index: 0,
                   activeIconPath: AssetsImage.activeHome,
                   inactiveIconPath: AssetsImage.inactiveHome,
-                  label: 'Home',
+                  label: local.home,
                 ),
                 _buildNavItem(
                   index: 1,
                   activeIconPath: AssetsImage.activeEditor,
                   inactiveIconPath: AssetsImage.inactiveEditor,
-                  label: 'Text Editor',
+                  label: local.textEditor,
                 ),
                 _buildNavItem(
                   index: 2,
                   activeIconPath: AssetsImage.activeSetting,
                   inactiveIconPath: AssetsImage.inactiveSetting,
-                  label: 'Settings',
+                  label: local.settings,
                 ),
               ],
             ),
@@ -96,7 +102,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
             width: MediaQuery.of(context).size.width,
             child: AnimatedAlign(
               duration: const Duration(milliseconds: 100),
-              alignment: Alignment(-1.0 + _selectedIndex * 1.0, 0),
+              alignment: Alignment(
+                isRTL
+                    ? (1.0 - _selectedIndex * 1.0)
+                    : (-1.0 + _selectedIndex * 1.0),
+                0,
+              ),
               child: Container(
                 width: tabWidth,
                 height: 2.8,
