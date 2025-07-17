@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/utils/app_colors.dart';
 import 'package:task/core/utils/assets.dart';
 
@@ -15,13 +16,13 @@ class CustomTextBottom extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         width: double.infinity,
-        height: 55,
+        height: 48.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
         color: AppColors.primaryColor
         ),
         child: Center(child: Text(text,style: TextStyle(
-            fontSize: 20,
+            fontSize: 16.sp,
             fontFamily: AppFonts.cairo,
             fontWeight: FontWeight.w800,
             color:AppColors.secColor),)),

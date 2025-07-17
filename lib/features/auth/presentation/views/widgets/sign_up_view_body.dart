@@ -1,34 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task/core/widgets/have_an_account.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task/features/auth/presentation/cubits/siginup_cubit/signup_cubit.dart';
 import 'package:task/features/auth/presentation/views/widgets/passwoed_field.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
+import '../../../../../core/widgets/have_an_account.dart';
 import 'custom_text_bottom.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 
-class SignUpViewBody extends StatefulWidget {
-  SignUpViewBody({super.key});
-
-  @override
-  State<SignUpViewBody> createState() => _SignUpViewBodyState();
-}
-
-class _SignUpViewBodyState extends State<SignUpViewBody> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController confirmedPasswordController =
-      TextEditingController();
-
-  GlobalKey<FormState> formKey = GlobalKey();
+class SignUpViewBody extends StatelessWidget {
+  const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-
+    final cubit = BlocProvider.of<SignupCubit>(context);
     final size = MediaQuery.of(context).size;
     final local = AppLocalizations.of(context)!;
 
@@ -38,67 +27,52 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Form(
-              key: formKey,
+              key: cubit.formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: size.height * 0.10),
-                  Image.asset(AssetsImage.logo, height: size.height * 0.10),
+                  SizedBox(height: 116.23.h),
+                  Image.asset(AssetsImage.logo, height: 80.h,),
+                  SizedBox(height: 40.23.h),
                   Text(
                     local.createAccount,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.w500,
-                      fontSize: 18,
+                      fontSize: 18.sp,
                     ),
                   ),
-                  SizedBox(height: size.height * 0.10),
+                  SizedBox(height: 40.h),
                   CustomTextFormField(
-                    controller: nameController,
-                    prefixIcon: Icon(Icons.person, size: 26),
+                    controller: cubit.nameController,
+                    prefixIcon:  Icon(Icons.person, size: 24.sp),
                     hintText: local.userName,
                     textInputType: TextInputType.name,
                   ),
                   const SizedBox(height: 20),
                   CustomTextFormField(
-                    controller: emailController,
-                    prefixIcon: Icon(Icons.email, size: 26),
+                    controller: cubit.emailController,
+                    prefixIcon:  Icon(Icons.email, size: 24.sp),
                     hintText: local.email,
                     textInputType: TextInputType.emailAddress,
                   ),
-                  const SizedBox(height: 20),
+                   SizedBox(height: 20.h),
                   PasswordField(
-                    controller: passwordController,
+                    controller: cubit.passwordController,
                     hintText: local.password,
                   ),
-                  const SizedBox(height: 20),
+                   SizedBox(height: 20.h),
                   PasswordField(
-                    controller: confirmedPasswordController,
+                    controller: cubit.confirmedPasswordController,
                     hintText: local.confirmPassword,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return local.confirmPassword;
-                      } else if (value != passwordController.text) {
-                        return local.passwordsDoNotMatch;
-                      }
-                      return null;
-                    },
+                    validator: (value) => cubit.validateConfirmPassword(value),
                   ),
-
-                  const SizedBox(height: 30),
+                   SizedBox(height: 35.h),
                   CustomTextBottom(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        BlocProvider.of<SignupCubit>(context).signUp(
-                          emailController.text,
-                          passwordController.text,
-                          nameController.text,
-                        );
-                      }
-                    },
-                    text:  local.signUp,
+                    onPressed: () => cubit.signUp(),
+                    text: local.signUp,
                   ),
-                  SizedBox(height: size.height * 0.15),
+                  SizedBox(height: 70.h),
                   const HaveAnAccountWidget(),
                 ],
               ),

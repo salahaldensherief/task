@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/utils/app_colors.dart';
 
 import '../utils/assets.dart';
@@ -57,7 +58,7 @@ class CustomTextFormField extends StatelessWidget {
             focusedBorder: InputBorder.none,
           ),
         ),
-        const SizedBox(height: 4),
+         SizedBox(height: 2.h),
         Container(
           height: 2,
           width: double.infinity,

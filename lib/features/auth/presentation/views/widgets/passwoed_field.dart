@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/widgets/custom_text_field.dart';
 
@@ -39,9 +41,10 @@ class _PasswordFieldState extends State<PasswordField> {
             return null;
           },
       textInputType: TextInputType.visiblePassword,
-      prefixIcon: const Icon(Icons.lock, size: 26, color: Colors.black54),
+      prefixIcon:  Icon(FontAwesomeIcons.lock, size: 24.sp, color: Colors.black54),
       suffixIcon: IconButton(
         icon: Icon(
+          size: 20.sp,
           obscureText ? Icons.visibility : Icons.visibility_off,
           color: Colors.grey,
         ),

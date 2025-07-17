@@ -4,7 +4,6 @@ import '../../data/models/user_model.dart';
 
 class LoginRepo {
   final UserDataSource dataSource;
-
   LoginRepo(this.dataSource);
   Future<UserModel?> getLoggedInUser(String email, String password) async {
     final users = await dataSource.getUsers();

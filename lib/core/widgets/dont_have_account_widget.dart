@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/utils/assets.dart';
 import 'package:task/features/auth/presentation/views/sign_up_view.dart';
 
@@ -33,6 +34,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
                   },
             text: local.signUp,
             style: TextStyle(
+              fontSize: 14.sp,
               fontFamily: AppFonts.cairo,
               color: AppColors.primaryColor,
             ),

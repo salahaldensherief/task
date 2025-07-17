@@ -11,3 +11,4 @@ final class LoginFailure extends LoginState {
   LoginFailure(this.massege);
 }
 final class LoginSuccess extends LoginState {}
+class LoginCheckboxToggled extends LoginState {}

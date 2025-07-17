@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task/core/helper/%20Injection/git_it.dart';
 import 'package:task/core/helper/app_routes.dart';
@@ -28,29 +29,30 @@ class Task extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<LoginCubit>(create: (context) => getIt<LoginCubit>()),
-        BlocProvider<SignupCubit>(create: (context) => getIt<SignupCubit>()),
-        BlocProvider(create: (context) => LocalizationCubit()),
-      ],
+    return BlocProvider(
+      create: (context) => LocalizationCubit(),
       child: BlocBuilder<LocalizationCubit, LocalizationState>(
         builder: (context, state) {
-          return MaterialApp(
-            locale: Locale(state.locale.languageCode),
-            debugShowCheckedModeBanner: false,
-            title: 'Task App',
-            theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-            supportedLocales: const [Locale('en'), Locale('ar')],
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            initialRoute:
-                isLoggedIn ? BottomNavBar.routeName : SignInView.routeName,
-            onGenerateRoute: onGenerateRoute,
+          return ScreenUtilInit(
+            designSize: Size(375, 812),
+            minTextAdapt: true,
+            splitScreenMode: true,
+            child: MaterialApp(
+              locale: Locale(state.locale.languageCode),
+              debugShowCheckedModeBanner: false,
+              title: 'Task App',
+              theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+              supportedLocales: const [Locale('en'), Locale('ar')],
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              initialRoute:
+                  isLoggedIn ? BottomNavBar.routeName : SignInView.routeName,
+              onGenerateRoute: onGenerateRoute,
+            ),
           );
         },
       ),
