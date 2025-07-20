@@ -20,14 +20,13 @@ class HomeViewBody extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        minimum: EdgeInsets.only(top: 20),
 
         child: SingleChildScrollView(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 16.w ,vertical: 1.h),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w ,),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                SizedBox(height: 30.w,),
                 Row(
                   children: [
                     UserHeaderWidget(
@@ -41,13 +40,11 @@ class HomeViewBody extends StatelessWidget {
                     IconAppBar(image: AssetsImage.alarmPhoto),
                   ],
                 ),
-                SizedBox(height: 20.h),
                 SearchBarWidget(),
-                SizedBox(height: 20.h),
                 OffersWidget(),
                 BestSellerSection(),
-                SizedBox(height: 10.h),
                 BestSellerListView(),
+
               ],
             ),
           ),

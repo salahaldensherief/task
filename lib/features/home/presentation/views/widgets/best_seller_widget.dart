@@ -11,58 +11,54 @@ class BestSellerWidget extends StatelessWidget {
     required this.product,
     this.isFav = false,
   });
-
   final ProductsModel product;
   final bool isFav;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
+      padding: const EdgeInsets.only(left: 3, right: 10, top: 3,bottom:4 ),
       child: Container(
-        height: 270.h,
+        width: 253.w,
+        height: 272.h,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8.r),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 2,
+              spreadRadius: 4.r,
               blurRadius: 5,
-              offset: Offset(0, 2),
+              offset: const Offset(3, 3),
             ),
           ],
         ),
         child: Column(
           children: [
             Container(
-              height: 200.h,
-              margin: EdgeInsets.symmetric(horizontal: 8.w, vertical: 6.h),
-              decoration: BoxDecoration(
-                color: const Color(0xffF7F7FB),
-                borderRadius: BorderRadius.circular(6.r),
-              ),
+              height: 160.h,
+              margin:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 16.h),
+              decoration: BoxDecoration(color: const Color(0xffF7F7FB)),
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                    padding:  EdgeInsets.symmetric(vertical: 8.h,horizontal: 8.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           height: 24.h,
                           width: 42.w,
-                          decoration: BoxDecoration(
-                            color: Colors.red.shade700,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            product.dic,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12.sp,
+                          decoration: BoxDecoration(color: Colors.red.shade700),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 5.h),
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              product.dic,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12.sp,
+                              ),
                             ),
                           ),
                         ),
@@ -71,7 +67,6 @@ class BestSellerWidget extends StatelessWidget {
                           icon: Icon(
                             Icons.favorite_border,
                             color: isFav ? Colors.teal : AppColors.primaryColor,
-                            size: 20.sp,
                           ),
                         ),
                       ],
@@ -81,7 +76,7 @@ class BestSellerWidget extends StatelessWidget {
                     child: Center(
                       child: Image.asset(
                         AssetsImage.boxPhoto,
-                        height: 110.h,
+                        height: 120.h,
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -90,44 +85,44 @@ class BestSellerWidget extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     product.productName,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 14.sp,
                     ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 4.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Text(
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
                           product.category,
-                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 12.sp,
+                           fontFamily: AppFonts.cairo,
                             color: Colors.grey,
-                            fontFamily: 'Cairo',
+                            fontSize: 12.sp,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          product.price,
+                          style: TextStyle(
+                            fontFamily: AppFonts.cairo,                            fontWeight: FontWeight.w800,
+                            color: AppColors.primaryColor,
+                            fontSize: 16.sp,
                           ),
                         ),
-                      ),
-                      Text(
-                        product.price,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w800,
-                          color: AppColors.primaryColor,
-                          fontFamily: 'Cairo',
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),

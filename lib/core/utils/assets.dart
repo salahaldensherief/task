@@ -7,7 +7,7 @@ class AssetsImage {
   static const heartPhoto = 'assets/images/Frame 23.svg';
   static const alarmPhoto = 'assets/images/Frame 24.svg';
   static const searchPhoto = 'assets/images/search.svg';
-  static const filterPhoto = 'assets/images/Vector.svg';
+  static const filterPhoto = 'assets/images/flter.svg';
   static const boxPhoto = 'assets/images/image 9.png';
   static const inactiveHome = 'assets/images/home.png';
   static const  activeHome = 'assets/images/home active.png';

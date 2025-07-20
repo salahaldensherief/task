@@ -24,15 +24,14 @@ class UserHeaderWidget extends StatelessWidget {
             Text(
               name,
               style:  TextStyle(
-                fontFamily: 'Cairo',
-                fontWeight: FontWeight.w900,
+                fontFamily: AppFonts.cairo,                fontWeight: FontWeight.w900,
                 fontSize: 12.sp,
               ),
             ),
             Text(
               info,
               style:  TextStyle(
-                fontFamily: 'Cairo',
+                fontFamily: AppFonts.cairo,
                 color: Colors.black54,
                 fontSize: 12.sp,
               ),

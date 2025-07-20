@@ -18,6 +18,7 @@ class OffersListView extends StatelessWidget {
           return SizedBox(
             height: 220.h,
             child: ListView.builder(
+              shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: offers.length,
               itemBuilder: (context, index) {
@@ -26,12 +27,15 @@ class OffersListView extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(4.r),
-                      child: Image.asset(
-                        fit: BoxFit.contain,
-                        alignment: Alignment.centerLeft,
-                        offer.offer2,
-                        height: 173.h,
-                        width: 302.w,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 16,top: 16),
+                        child: Image.asset(
+                          fit: BoxFit.fitWidth,
+                          alignment: Alignment.centerLeft,
+                          offer.offer2,
+                          height: 173.h,
+
+                        ),
                       ),
                     ),
                   ],

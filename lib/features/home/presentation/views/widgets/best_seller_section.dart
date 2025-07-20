@@ -13,36 +13,39 @@ class BestSellerSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context)!;
 
-    return  Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          local.bestSeller,
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontFamily: AppFonts.cairo,
-            fontWeight: FontWeight.w900,
+    return  Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            local.bestSeller,
+            style: TextStyle(
+              fontSize: 16.sp,
+              fontFamily: AppFonts.cairo,
+              fontWeight: FontWeight.w900,
+            ),
           ),
-        ),
-        Row(
-          children: [
-            Text(
-              local.viewAll,
-              style: TextStyle(
-                fontSize: 14.sp,
-                color: AppColors.primaryColor,
-                fontWeight: FontWeight.w700,
+          Row(
+            children: [
+              Text(
+                local.viewAll,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.primaryColor,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            SizedBox(width: 4.w,),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 10.w,
-              color: AppColors.primaryColor,
-            ),
-          ],
-        ),
-      ],
+              SizedBox(width: 4.w,),
+              Icon(
+                Icons.arrow_forward_ios,
+                size: 10.w,
+                color: AppColors.primaryColor,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
