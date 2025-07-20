@@ -1,68 +1,79 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../data/models/products_model.dart';
 
 class BestSellerWidget extends StatelessWidget {
-  const BestSellerWidget({super.key, required this.product});
+  const BestSellerWidget({
+    super.key,
+    required this.product,
+    this.isFav = false,
+  });
+
   final ProductsModel product;
+  final bool isFav;
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double cardWidth = screenWidth / 2 - 24;
-
     return Padding(
-      padding: const EdgeInsets.only(left: 2, right: 10, top: 2, bottom: 16),
+      padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
       child: Container(
-        width: cardWidth,
-        height: 250,
+        height: 270.h,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 4,
+              spreadRadius: 2,
               blurRadius: 5,
-              offset: const Offset(0, 2),
+              offset: Offset(0, 2),
             ),
           ],
         ),
         child: Column(
           children: [
             Container(
-              height: 170,
-              margin: const EdgeInsets.all(10),
+              height: 200.h,
+              margin: EdgeInsets.symmetric(horizontal: 8.w, vertical: 6.h),
               decoration: BoxDecoration(
                 color: const Color(0xffF7F7FB),
+                borderRadius: BorderRadius.circular(6.r),
               ),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
+                          height: 24.h,
+                          width: 42.w,
                           decoration: BoxDecoration(
                             color: Colors.red.shade700,
+                            borderRadius: BorderRadius.circular(4.r),
                           ),
+                          alignment: Alignment.center,
                           child: Text(
                             product.dic,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 10,
+                              fontSize: 12.sp,
                             ),
                           ),
                         ),
-                        const Icon(Icons.favorite_border, color: Colors.teal),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.favorite_border,
+                            color: isFav ? Colors.teal : AppColors.primaryColor,
+                            size: 20.sp,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -70,7 +81,7 @@ class BestSellerWidget extends StatelessWidget {
                     child: Center(
                       child: Image.asset(
                         AssetsImage.boxPhoto,
-                        height: 100,
+                        height: 110.h,
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -78,49 +89,47 @@ class BestSellerWidget extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      product.productName,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 12,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    product.productName,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14.sp,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Flexible(
-                          child: Text(
-                            product.category,
-                            style: const TextStyle(
-                              fontFamily: 'Cairo',
-                              color: Colors.grey,
-                              fontSize: 11,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        Text(
-                          product.price,
+                  ),
+                  SizedBox(height: 4.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          product.category,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Colors.grey,
                             fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w900,
-                            color: AppColors.primaryColor,
-                            fontSize: 14,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                      Text(
+                        product.price,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w800,
+                          color: AppColors.primaryColor,
+                          fontFamily: 'Cairo',
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],

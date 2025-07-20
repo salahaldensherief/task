@@ -31,6 +31,7 @@ class CustomTextFormField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         TextFormField(
+
           controller: controller,
           obscureText: obscureText,
           keyboardType: textInputType,

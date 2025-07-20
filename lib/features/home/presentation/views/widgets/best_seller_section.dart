@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/assets.dart';
@@ -18,7 +19,7 @@ class BestSellerSection extends StatelessWidget {
         Text(
           local.bestSeller,
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 16.sp,
             fontFamily: AppFonts.cairo,
             fontWeight: FontWeight.w900,
           ),
@@ -28,14 +29,15 @@ class BestSellerSection extends StatelessWidget {
             Text(
               local.viewAll,
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 14.sp,
                 color: AppColors.primaryColor,
                 fontWeight: FontWeight.w700,
               ),
             ),
+            SizedBox(width: 4.w,),
             Icon(
               Icons.arrow_forward_ios,
-              size: 12,
+              size: 10.w,
               color: AppColors.primaryColor,
             ),
           ],

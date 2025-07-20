@@ -41,7 +41,9 @@ class Task extends StatelessWidget {
               locale: Locale(state.locale.languageCode),
               debugShowCheckedModeBanner: false,
               title: 'Task App',
-              theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+              theme: ThemeData(
+                  useMaterial3: false,
+                  scaffoldBackgroundColor: Colors.white),
               supportedLocales: const [Locale('en'), Locale('ar')],
               localizationsDelegates: const [
                 AppLocalizations.delegate,

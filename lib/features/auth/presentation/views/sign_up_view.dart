@@ -17,7 +17,7 @@ class SignUpView extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Account created successfully! Please sign in.')),
           );
-          Navigator.pushReplacementNamed(context,SignInView.routeName);
+          Navigator.pop(context,SignInView.routeName);
         } else if (state is SignUpFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.message)),

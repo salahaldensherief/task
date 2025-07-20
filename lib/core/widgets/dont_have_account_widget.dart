@@ -25,7 +25,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
               fontFamily: AppFonts.cairo,
             ),
           ),
-          TextSpan(text: ' ', ),
+          TextSpan(text: '  ', ),
           TextSpan(
             recognizer:
                 TapGestureRecognizer()
@@ -35,6 +35,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
             text: local.signUp,
             style: TextStyle(
               fontSize: 14.sp,
+              fontWeight: FontWeight.w900,
               fontFamily: AppFonts.cairo,
               color: AppColors.primaryColor,
             ),

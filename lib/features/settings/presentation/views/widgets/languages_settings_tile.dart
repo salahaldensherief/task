@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task/core/utils/app_colors.dart';
 import '../../../../../core/utils/assets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -22,11 +24,7 @@ class LanguagesSettingsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context)!;
-    final screenWidth = MediaQuery.of(context).size.width;
-    final double barHeight =
-    screenWidth < 360 ? 30.0 : (screenWidth < 600 ? 40.0 : 35.0);
-    final double barWidth =
-    screenWidth < 360 ? 30.0 : (screenWidth < 600 ? 40.0 : 35.0);
+
     final localizationCubit = context.read<LocalizationCubit>();
 
     return Container(
@@ -39,21 +37,23 @@ class LanguagesSettingsTile extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  height: barHeight,
-                  width: barWidth,
+                  height: 40.h,
+                  width: 40.w,
                   decoration: BoxDecoration(
                     color: const Color(0xffF5FBF9),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Center(
-                    child: Image.asset(
+                    child: SvgPicture.asset(
                       iconImage,
-                      width: screenWidth < 600 ? 23 : 20,
+                      width: 20.w,
                     ),
                   ),
                 ),
-                const SizedBox(width: 20),
-                Text(local.language, style: const TextStyle(fontFamily: 'Cairo')),
+                 SizedBox(width: 20.w),
+                Text(local.language, style:  TextStyle(
+                    fontSize: 14.sp,
+                    fontFamily: 'Cairo')),
               ],
             ),
           ),
@@ -63,9 +63,9 @@ class LanguagesSettingsTile extends StatelessWidget {
                 onPressed: () {
                   showModalBottomSheet(
                     context: context,
-                    shape: const RoundedRectangleBorder(
+                    shape:  RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(20),
+                        top: Radius.circular(20.r),
                       ),
                     ),
                     builder: (context) {
@@ -76,11 +76,11 @@ class LanguagesSettingsTile extends StatelessWidget {
                           children: [
                             Text(
                               local.chooseLanguage,
-                              style: const TextStyle(fontSize: 18),
+                              style:  TextStyle(fontSize: 14.sp),
                             ),
-                            const SizedBox(height: 16),
+                             SizedBox(height: 16.h),
                             ListTile(
-                              leading: Image.asset(
+                              leading: SvgPicture.asset(
                                 AssetsImage.languageIcon,
                                 width: 20,
                               ),
@@ -91,9 +91,9 @@ class LanguagesSettingsTile extends StatelessWidget {
                               },
                             ),
                             ListTile(
-                              leading: Image.asset(
+                              leading: SvgPicture.asset(
                                 AssetsImage.languageIcon,
-                                width: 20,
+                                width: 20.w,
                               ),
                               title: const Text('English'),
                               onTap: () {

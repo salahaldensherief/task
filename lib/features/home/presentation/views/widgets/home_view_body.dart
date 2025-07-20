@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:task/features/home/presentation/views/widgets/best_seller_widget.dart';
 import 'package:task/features/home/presentation/views/widgets/custom_search_bar.dart';
@@ -19,32 +20,33 @@ class HomeViewBody extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
+        minimum: EdgeInsets.only(top: 20),
+
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w ,vertical: 1.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
                   children: [
                     UserHeaderWidget(
-                      radius: 25,
+                      radius: 25.r,
                       name: 'Salah',
                       info: local.welcome,
                     ),
                     Spacer(),
                     IconAppBar(image: AssetsImage.heartPhoto),
-                    SizedBox(width: 20),
+                    SizedBox(width: 20.w),
                     IconAppBar(image: AssetsImage.alarmPhoto),
                   ],
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 20.h),
                 SearchBarWidget(),
-                SizedBox(height: 25),
+                SizedBox(height: 20.h),
                 OffersWidget(),
-                SizedBox(height: 25),
                 BestSellerSection(),
-                SizedBox(height: 25),
+                SizedBox(height: 10.h),
                 BestSellerListView(),
               ],
             ),

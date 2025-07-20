@@ -19,14 +19,14 @@ class CustomCheckBox extends StatelessWidget {
         onChecked(!isChecked);
       },
       child: AnimatedContainer(
-        width: 20.w,
-        height: 20.h,
+        width: 18.w,
+        height: 18.h,
         duration: const Duration(milliseconds: 100),
         decoration: ShapeDecoration(
           color: isChecked ?  Color(0xff6750A4) : AppColors.secColor ,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(3.r),
-            side: BorderSide(width: 2.3.w, color: isChecked ? Color(0xff6750A4) :Colors.black ),
+            side: BorderSide(width: 2.w, color: isChecked ? Color(0xff6750A4) :Colors.black ),
           ),
         ),
         child:

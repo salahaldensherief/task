@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/helper/ Injection/git_it.dart';
 import '../../cubits/products/products_cubit.dart';
@@ -17,7 +18,7 @@ class BestSellerListView extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<ProductsCubit>()..fetchProduct(),
       child: SizedBox(
-        height: 270,
+        height: 272,
         child: BlocBuilder<ProductsCubit, ProductsState>(
           builder: (context, state) {
             if (state is ProductsSuccess) {
@@ -27,7 +28,9 @@ class BestSellerListView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return SizedBox(
-                      width: MediaQuery.of(context).size.width / 1.8,
+                      width: 250.w,
+
+
                       child: BestSellerWidget(product: products[index]));
                 },
               );

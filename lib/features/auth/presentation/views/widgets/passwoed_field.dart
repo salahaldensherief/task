@@ -33,8 +33,8 @@ class _PasswordFieldState extends State<PasswordField> {
       onSaved: widget.onSaved,
       hintText: widget.hintText,
       validator:
-          widget.validator ??
-          (value) {
+      widget.validator ??
+              (value) {
             if (value == null || value.isEmpty) {
               return 'This field cannot be empty';
             }

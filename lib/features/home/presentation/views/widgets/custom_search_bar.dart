@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task/core/utils/app_colors.dart';
 import 'package:task/core/utils/assets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,13 +12,13 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isRTL = Directionality.of(context) == TextDirection.rtl;
+
     final local = AppLocalizations.of(context)!;
 
-    final screenWidth = MediaQuery.of(context).size.width;
-    final double barHeight =
-        screenWidth < 360 ? 36.0 : (screenWidth < 600 ? 60.0 : 50.0);
     return Container(
-      height: barHeight,
+      height: 48.h,
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Color(0xffF2F2F2),
         borderRadius: BorderRadius.circular(4),
@@ -24,45 +26,52 @@ class SearchBarWidget extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              child: TextField(
-                controller: searchController,
-                decoration: InputDecoration(
-                  hintText: local.searchHere,
-                  hintStyle: TextStyle(
-                    color: Colors.grey[500],
-                    fontSize:
-                        screenWidth < 360 ? 12 : (screenWidth < 600 ? 16 : 14),
-                  ),
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      AssetsImage.searchPhoto,
-                      width:
-                          screenWidth < 360
-                              ? 18
-                              : (screenWidth < 600 ? 20 : 24),
-                    ),
-                  ),
-                  border: InputBorder.none,
+            child: TextField(
+              controller: searchController,
+              textDirection: isRTL ? TextDirection.rtl : TextDirection.ltr,
+              decoration: InputDecoration(
+                hintText: local.searchHere,
+                hintStyle: TextStyle(
+                  color: Colors.grey[500],
+                  fontSize: 14.sp,
                 ),
+                prefixIcon: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.w),
+                  child: SvgPicture.asset(
+                    AssetsImage.searchPhoto,
+                    width: 17.w,
+                    height: 17.h,
+                    fit: BoxFit.scaleDown,
+                  ),
+                ),
+                prefixIconConstraints: BoxConstraints(
+                  minWidth: 32.w,
+                  minHeight: 32.h,
+                ),
+                border: InputBorder.none,
               ),
             ),
           ),
           Container(
             height: double.infinity,
-            width: screenWidth < 360 ? 50 : (screenWidth < 600 ? 60 : 70),
+            width: 52.w,
             decoration: BoxDecoration(
               color: AppColors.primaryColor,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(4),
-                bottomRight: Radius.circular(4),
+              borderRadius: isRTL
+                  ? BorderRadius.only(
+                topLeft: Radius.circular(4.r),
+                bottomLeft: Radius.circular(4.r),
+              )
+                  : BorderRadius.only(
+                topRight: Radius.circular(4.r),
+                bottomRight: Radius.circular(4.r),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(18),
-              child: Image.asset(AssetsImage.filterPhoto),
+            child: SvgPicture.asset(
+              fit: BoxFit.scaleDown,
+              width: 20.w,
+              height: 20.h,
+              AssetsImage.filterPhoto,
             ),
           ),
         ],

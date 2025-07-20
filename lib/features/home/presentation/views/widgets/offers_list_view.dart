@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/features/home/presentation/cubits/offers/offers_cubit.dart';
 import '../../../data/models/offer_model.dart';
 
@@ -8,12 +9,6 @@ class OffersListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    final imageHeight = screenHeight * 0.18;
-    final containerHeight = imageHeight * 16;
-
     return BlocBuilder<OffersCubit, OffersState>(
       builder: (context, state) {
         if (state is OffersLoading) {
@@ -21,29 +16,25 @@ class OffersListView extends StatelessWidget {
         } else if (state is OffersSuccess) {
           final List<OfferModel> offers = state.offers;
           return SizedBox(
-
-            height: 200,
+            height: 220.h,
             child: ListView.builder(
-              shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: offers.length,
               itemBuilder: (context, index) {
                 final offer = offers[index];
-                return Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: Image.asset(
-                          offer.offer2,
-                          height: imageHeight,
-                          width: screenWidth * 0.7,
-                          fit: BoxFit.cover,
-                        ),
+                return Column(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(4.r),
+                      child: Image.asset(
+                        fit: BoxFit.contain,
+                        alignment: Alignment.centerLeft,
+                        offer.offer2,
+                        height: 173.h,
+                        width: 302.w,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 );
               },
             ),
