@@ -9,7 +9,8 @@ import 'package:task/features/settings/presentation/views/widgets/languages_sett
 import 'package:task/features/settings/presentation/views/widgets/settings_tile.dart';
 
 import '../../../../../core/utils/assets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../../../l10n/app_localizations.dart';
 
 class SettingsViewBody extends StatelessWidget {
   const SettingsViewBody({super.key});

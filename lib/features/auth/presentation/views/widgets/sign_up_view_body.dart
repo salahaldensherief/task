@@ -7,8 +7,9 @@ import 'package:task/features/auth/presentation/views/widgets/passwoed_field.dar
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../core/widgets/have_an_account.dart';
+import '../../../../../l10n/app_localizations.dart';
+import '../sign_in_view.dart';
 import 'custom_text_bottom.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
@@ -74,9 +75,28 @@ class SignUpViewBody extends StatelessWidget {
                           validator: (value) => cubit.validateConfirmPassword(value),
                         ),
                         SizedBox(height: 40.h),
-                        CustomTextBottom(
-                          onPressed: () => cubit.signUp(),
-                          text: local.signUp,
+                        BlocConsumer<SignupCubit, SignupState>(
+                          listener: (context, state) {
+                            if (state is SignUpSuccess) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Account created successfully! Please sign in.')),
+                              );
+                              Navigator.pop(context, SignInView.routeName);
+                            } else if (state is SignUpFailure) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(state.message)),
+                              );
+                            }
+                          },
+                          builder: (context, state) {
+                            if (state is SignUpLoading) {
+                              return const CircularProgressIndicator(); // أو زر فيه لودينج
+                            }
+                            return CustomTextBottom(
+                              onPressed: () => cubit.signUp(),
+                              text: local.signUp,
+                            );
+                          },
                         ),
                         const Spacer(),
                         const HaveAnAccountWidget(),

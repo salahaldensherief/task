@@ -7,11 +7,11 @@ import 'package:task/core/helper/%20Injection/git_it.dart';
 import 'package:task/core/helper/app_routes.dart';
 import 'package:task/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:task/features/auth/presentation/cubits/siginup_cubit/signup_cubit.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:task/features/settings/presentation/views/cubits/loaclization_state.dart';
 import 'features/auth/presentation/views/sign_in_view.dart';
 import 'features/home/presentation/views/widgets/bottom_nav_bar.dart';
 import 'features/settings/presentation/views/cubits/loaclization_cubit.dart';
+import 'l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

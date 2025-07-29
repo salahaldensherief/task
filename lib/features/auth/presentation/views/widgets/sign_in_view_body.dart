@@ -11,7 +11,9 @@ import 'package:task/features/auth/presentation/views/widgets/custom_check_box.d
 import 'package:task/features/auth/presentation/views/widgets/custom_text_bottom.dart';
 import 'package:task/features/auth/presentation/views/widgets/passwoed_field.dart';
 import 'package:task/features/auth/presentation/views/widgets/social_login_button.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../../../l10n/app_localizations.dart';
+import '../../../../home/presentation/views/widgets/bottom_nav_bar.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -90,11 +92,27 @@ class SignInViewBody extends StatelessWidget {
                           },
                         ),
                         SizedBox(height: 24.h),
-                        CustomTextBottom(
-                          onPressed: () {
-                            cubit.login();
+                        BlocConsumer<LoginCubit, LoginState>(
+                          listener: (context, state) {
+                            if (state is LoginFailure) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(state.massege)),
+                              );
+                            } else if (state is LoginSuccess) {
+                              Navigator.pushReplacementNamed(context, BottomNavBar.routeName);
+                            }
                           },
-                          text: local.login,
+                          builder: (context, state) {
+                            if (state is LoginLoading) {
+                              return const CircularProgressIndicator(); 
+                            }
+                            return CustomTextBottom(
+                              onPressed: () {
+                                cubit.login();
+                              },
+                              text: local.login,
+                            );
+                          },
                         ),
                         SizedBox(height: 28.h),
                         Text(

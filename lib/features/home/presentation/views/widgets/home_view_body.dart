@@ -7,9 +7,9 @@ import 'package:task/features/home/presentation/views/widgets/offers_widget.dart
 import 'package:task/features/home/presentation/views/widgets/user_header_widget.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../../../../l10n/app_localizations.dart';
 import 'best_seller_section.dart';
 import 'icons_app_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class HomeViewBody extends StatelessWidget {

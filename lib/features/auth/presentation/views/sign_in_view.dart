@@ -12,23 +12,6 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
-        if (state is LoginFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.massege)),
-          );
-        } else if (state is LoginSuccess) {
-          Navigator.pushReplacementNamed(context, BottomNavBar.routeName);
-        }
-      },
-      builder: (context, state) {
-        if (state is LoginLoading) {
-          return const Center(child: Scaffold(body: CircularProgressIndicator()));
-        } else {
-          return const SignInViewBody();
-        }
-      },
-    );
+    return const SignInViewBody();
   }
 }

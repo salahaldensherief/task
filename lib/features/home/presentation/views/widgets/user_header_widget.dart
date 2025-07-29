@@ -4,7 +4,12 @@ import 'package:task/core/utils/assets.dart';
 import 'package:task/features/home/presentation/views/widgets/icons_app_bar.dart';
 
 class UserHeaderWidget extends StatelessWidget {
-  const UserHeaderWidget({super.key, required this.name, required this.info, required this.radius});
+  const UserHeaderWidget({
+    super.key,
+    required this.name,
+    required this.info,
+    required this.radius,
+  });
   final String name;
   final String info;
   final double radius;
@@ -17,20 +22,21 @@ class UserHeaderWidget extends StatelessWidget {
           maxRadius: radius,
           child: Image.asset(AssetsImage.userPhoto),
         ),
-         SizedBox(width: 10.w),
+        SizedBox(width: 10.w),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               name,
-              style:  TextStyle(
-                fontFamily: AppFonts.cairo,                fontWeight: FontWeight.w900,
+              style: TextStyle(
+                fontFamily: AppFonts.cairo,
+                fontWeight: FontWeight.w900,
                 fontSize: 12.sp,
               ),
             ),
             Text(
               info,
-              style:  TextStyle(
+              style: TextStyle(
                 fontFamily: AppFonts.cairo,
                 color: Colors.black54,
                 fontSize: 12.sp,

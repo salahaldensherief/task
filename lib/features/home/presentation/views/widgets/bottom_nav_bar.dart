@@ -4,8 +4,8 @@ import 'package:task/core/utils/assets.dart';
 import 'package:task/features/home/presentation/views/home_view.dart';
 import 'package:task/features/settings/presentation/views/settings_view.dart';
 
+import '../../../../../l10n/app_localizations.dart';
 import '../../../../T-editor/presentation/views/text_editor.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});

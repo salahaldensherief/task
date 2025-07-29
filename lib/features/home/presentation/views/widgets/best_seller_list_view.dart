@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/helper/ Injection/git_it.dart';
+import '../../../../../l10n/app_localizations.dart';
 import '../../cubits/products/products_cubit.dart';
 import 'best_seller_widget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({super.key});

@@ -5,7 +5,7 @@ import 'package:task/core/utils/assets.dart';
 import 'package:task/features/auth/presentation/views/sign_up_view.dart';
 
 import '../../../../../core/utils/app_colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 
 
 class DontHaveAnAccountWidget extends StatelessWidget {

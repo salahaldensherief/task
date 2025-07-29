@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task/features/T-editor/presentation/views/widgets/tools_bar.dart';
 
 import '../../../../../core/widgets/custom_app_bar.dart';
+import '../../../../../l10n/app_localizations.dart';
 import '../../cubits/editor/texteditor_cubit.dart';
 import 'Custom_text_field.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TextEditorViewBody extends StatelessWidget {
   TextEditorViewBody({super.key});

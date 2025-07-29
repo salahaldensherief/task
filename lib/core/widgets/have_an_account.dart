@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/utils/assets.dart';
 import 'package:task/features/auth/presentation/views/sign_in_view.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../utils/app_colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
   const HaveAnAccountWidget({super.key});

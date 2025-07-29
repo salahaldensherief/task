@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task/core/utils/app_colors.dart';
 import 'package:task/core/utils/assets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../../../l10n/app_localizations.dart';
 
 class SearchBarWidget extends StatelessWidget {
   final TextEditingController? searchController;

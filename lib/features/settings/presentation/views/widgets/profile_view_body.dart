@@ -5,7 +5,7 @@ import 'package:task/core/widgets/custom_text_field.dart';
 import 'package:task/features/auth/presentation/views/widgets/custom_text_bottom.dart';
 import 'package:task/features/settings/data/profile_repo.dart';
 import 'package:task/features/settings/presentation/views/widgets/edit_info_field.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../l10n/app_localizations.dart';
 
 class ProfileViewBody extends StatefulWidget {
   const ProfileViewBody({super.key});
